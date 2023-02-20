@@ -1,0 +1,27 @@
+my_module.list:
+  path: '/my-entities'
+  defaults:
+    _entity_list: 'my_entity'
+  requirements:
+    _permission: 'access content'
+
+my_module.add:
+  path: '/my-entity/add'
+  defaults:
+    _entity_form: 'my_entity.add'
+  requirements:
+    _permission: 'add my entity'
+
+my_module.edit:
+  path: '/my-entity/{my_entity}/edit'
+  defaults:
+    _entity_form: 'my_entity.edit'
+  requirements:
+    _permission: 'edit my entity'
+
+my_module.delete:
+  path: '/my-entity/{my_entity}/delete'
+  defaults:
+    _entity_form: 'my_entity.delete'
+  requirements:
+    _permission: 'delete my entity'

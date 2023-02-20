@@ -1,0 +1,11 @@
+entity.my_entity.multiple_delete_form:
+  route_name: entity.my_entity.delete_multiple
+  title: 'Delete'
+  base_route: entity.my_entity.collection
+  weight: 20
+  options:
+    attributes:
+      class:
+        - 'use-ajax'
+        - 'button'
+        - 'button--danger'

@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Install file for the My Module module.
+ */
+
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\user\RoleInterface;
+
+/**
+ * Implements hook_install().
+ */
+function my_module_install() {
+  // Create MyEntity entity type.
+  \Drupal::service('entity.definition_update_manager')->applyUpdates();
+
+  // Add 'administer my entity' permission.
+  $admin_role = RoleInterface::AUTHENTICATED_ID;
+  $admin_permission = 'administer my entity';
+  $account = \Drupal::service('entity_type.manager')->getStorage('user')->load($admin_role);
+  $account->addPermission($admin_permission);
+  $account->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function my_module_uninstall() {
+  // Remove 'administer my entity' permission.
+  $admin_role = RoleInterface::AUTHENTICATED_ID;
+  $admin_permission = 'administer my entity';
+  $account = \Drupal::service('entity_type.manager')->getStorage('user')->load($admin_role);
+  $account->revokePermission($admin_permission);
+  $account->save();
+
+  // Remove MyEntity entity type.
+  $entity_type_id = 'my_entity';
+  /** @var EntityTypeManagerInterface $entity_type_manager
+ */
+ $entity_type_manager = \Drupal::service('entity_type.manager');
+ $entity_type = $entity_type_manager->getDefinition($entity_type_id);
+ $entity_type_manager->getStorage($entity_type_id)->delete([], TRUE);
+ $entity_type_manager->clearCachedDefinitions();
+ \Drupal::service('entity.definition_update_manager')->applyUpdates();
+}

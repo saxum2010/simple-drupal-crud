@@ -1,0 +1,11 @@
+entity.my_entity.collection:
+  route_name: entity.my_entity.collection
+
+entity.my_entity.add_form:
+  route_name: entity.my_entity.add_form
+
+entity.my_entity.edit_form:
+  route_name: entity.my_entity.edit_form
+
+entity.my_entity.delete_form:
+  route_name: entity.my_entity.delete_form

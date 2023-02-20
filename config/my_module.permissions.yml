@@ -1,0 +1,4 @@
+administer my entity:
+  title: 'Administer MyEntity'
+  description: 'Perform administration tasks on MyEntity.'
+  restrict access: true

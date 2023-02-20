@@ -1,0 +1,35 @@
+entity.my_entity.collection:
+  title: 'My Entities'
+  description: 'A list of My Entities.'
+  route_name: 'entity.my_entity.collection'
+  parent: system.admin_content
+  weight: 20
+
+entity.my_entity.add_form:
+  title: 'Add My Entity'
+  description: 'Add a new My Entity.'
+  route_name: 'entity.my_entity.add_form'
+  parent: entity.my_entity.collection
+  weight: 0
+
+entity.my_entity.edit_form:
+  title: 'Edit My Entity'
+  description: 'Edit an existing My Entity.'
+  route_name: 'entity.my_entity.edit_form'
+  parent: entity.my_entity.collection
+  weight: 1
+  options:
+    parameters:
+      my_entity:
+        type: entity:my_entity
+
+entity.my_entity.delete_form:
+  title: 'Delete My Entity'
+  description: 'Delete an existing My Entity.'
+  route_name: 'entity.my_entity.delete_form'
+  parent: entity.my_entity.collection
+  weight: 2
+  options:
+    parameters:
+      my_entity:
+        type: entity:my_entity

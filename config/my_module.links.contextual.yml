@@ -1,0 +1,26 @@
+entity.my_entity:
+  route_name: entity.my_entity.canonical
+  title: 'View'
+  weight: -10
+
+entity.my_entity.edit:
+  route_name: entity.my_entity.edit_form
+  title: 'Edit'
+  weight: 0
+  options:
+    attributes:
+      class:
+        - 'use-ajax'
+        - 'button'
+        - 'button--primary'
+
+entity.my_entity.delete:
+  route_name: entity.my_entity.delete_form
+  title: 'Delete'
+  weight: 10
+  options:
+    attributes:
+      class:
+        - 'use-ajax'
+        - 'button'
+        - 'button--danger'
